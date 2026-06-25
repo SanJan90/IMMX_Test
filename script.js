@@ -1,29 +1,56 @@
-// Parallax: verschuif de video-achtergrond langzamer dan de scroll.
+// Scroll-scrubbing: de scrollpositie bepaalt hoe ver de video is afgespeeld.
+// De video blijft vast op de achtergrond staan; naar beneden scrollen
+// laat de video stap voor stap verder lopen.
 (function () {
-  const bg = document.querySelector(".video-bg");
-  if (!bg) return;
+  const video = document.getElementById("bg-video");
+  if (!video) return;
 
-  // Hoe sterk de achtergrond meebeweegt (0 = stil, 1 = mee met scroll).
-  const SPEED = 0.4;
+  // Hoe soepel de video naar de doel-tijd toe beweegt (0–1, hoger = sneller volgen).
+  const SMOOTHING = 0.12;
 
-  let latestScroll = 0;
-  let ticking = false;
+  let targetTime = 0;
+  let duration = 0;
+  let ready = false;
 
-  function update() {
-    // Beweeg de achtergrond omhoog, langzamer dan de content.
-    const offset = latestScroll * SPEED;
-    bg.style.transform = "translateY(" + offset + "px)";
-    ticking = false;
+  function scrollFraction() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max <= 0) return 0;
+    const y = window.scrollY || window.pageYOffset;
+    return Math.min(1, Math.max(0, y / max));
+  }
+
+  function onMeta() {
+    duration = video.duration || 0;
+    ready = true;
+    // Pauzeer eigen afspelen — scroll bepaalt de tijd.
+    video.pause();
+    targetTime = scrollFraction() * duration;
   }
 
   function onScroll() {
-    latestScroll = window.scrollY || window.pageYOffset;
-    if (!ticking) {
-      window.requestAnimationFrame(update);
-      ticking = true;
+    if (!ready) return;
+    targetTime = scrollFraction() * duration;
+  }
+
+  // Loop continu zodat de video soepel naar de doel-tijd toe schuift.
+  function tick() {
+    if (ready && duration > 0) {
+      const current = video.currentTime;
+      const diff = targetTime - current;
+      if (Math.abs(diff) > 0.01) {
+        video.currentTime = current + diff * SMOOTHING;
+      }
     }
+    window.requestAnimationFrame(tick);
+  }
+
+  if (video.readyState >= 1) {
+    onMeta();
+  } else {
+    video.addEventListener("loadedmetadata", onMeta);
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });
-  update();
+  window.addEventListener("resize", onScroll, { passive: true });
+  window.requestAnimationFrame(tick);
 })();

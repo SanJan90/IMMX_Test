@@ -15,7 +15,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ---- Video achtergrond (parallax) ---- */
+/* ---- Vaste video-achtergrond (scroll bestuurt afspeeltijd) ---- */
 .video-bg {
   position: fixed;
   top: 0;
@@ -24,8 +24,6 @@ body {
   height: 100%;
   z-index: -1;
   overflow: hidden;
-  /* startpunt voor de parallax-transform */
-  will-change: transform;
 }
 
 .video-bg video {
@@ -36,8 +34,7 @@ body {
   min-height: 100%;
   width: auto;
   height: auto;
-  /* iets opgeschaald zodat parallax-verschuiving nooit randen toont */
-  transform: translate(-50%, -50%) scale(1.15);
+  transform: translate(-50%, -50%);
   object-fit: cover;
 }
 

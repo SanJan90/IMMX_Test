@@ -1,6 +1,8 @@
-# Parallax Video Demo
+# Scroll Video Demo
 
-Een HTML-pagina die een video gebruikt als meebewegende (parallax) achtergrond.
+Een HTML-pagina met een vaste video-achtergrond waarbij de **scrollpositie de
+afspeeltijd van de video bestuurt**: hoe verder je naar beneden scrollt, hoe
+verder de video loopt.
 
 ## Gebruik
 
@@ -19,15 +21,27 @@ Een HTML-pagina die een video gebruikt als meebewegende (parallax) achtergrond.
    # open http://localhost:8000
    ```
 
-3. Scroll — de video-achtergrond beweegt langzamer mee dan de tekst.
+3. Scroll — de video staat stil op de achtergrond en loopt mee met je scroll.
 
 ## Bestanden
 
 - `index.html` — structuur van de pagina
 - `style.css` — vormgeving, video vult altijd het scherm (`object-fit: cover`)
-- `script.js` — parallax-effect via `scroll` + `requestAnimationFrame`
+- `script.js` — koppelt de scrollpositie aan `video.currentTime`
 
 ## Afstellen
 
-- Parallax-snelheid: pas `SPEED` aan in `script.js` (0 = stilstaand, 1 = beweegt mee met scroll).
-- Zoom van de video: pas `scale(1.15)` aan in `.video-bg video` in `style.css`.
+- Soepelheid: pas `SMOOTHING` aan in `script.js` (0–1; hoger volgt de scroll sneller).
+- Hoe meer paginahoogte (meer/hogere secties), hoe langzamer de video per
+  scroll-afstand loopt.
+
+## Let op
+
+- De video moet **muted** zijn om in browsers programmatisch bestuurd te kunnen
+  worden (staat al ingesteld).
+- Voor soepel scrubben helpt het als de video veel keyframes heeft. Lukt het
+  scrubben schokkerig, her-encodeer dan met een laag keyframe-interval, bijv.:
+
+  ```bash
+  ffmpeg -i input.mp4 -g 1 -c:v libx264 -preset slow -crf 20 output.mp4
+  ```

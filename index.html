@@ -8,9 +8,9 @@
 </head>
 <body>
 
-  <!-- Vaste video-achtergrond die meebeweegt via parallax -->
+  <!-- Vaste video-achtergrond; scroll bepaalt hoe ver de video is afgespeeld -->
   <div class="video-bg">
-    <video autoplay muted loop playsinline id="bg-video">
+    <video muted playsinline preload="auto" id="bg-video">
       <source src="moving_the_ropes_light_turn_more_and_more_purple_wt83jrj3u7qhz86aoi25_1.mp4" type="video/mp4" />
       Je browser ondersteunt geen HTML5-video.
     </video>
@@ -20,25 +20,24 @@
   <!-- Content die over de video heen scrolt -->
   <main>
     <section class="hero">
-      <h1>Parallax Video</h1>
-      <p>Scroll naar beneden — de achtergrond beweegt mee</p>
+      <h1>Scroll Video</h1>
+      <p>Scroll naar beneden — de video loopt langzaam mee</p>
       <div class="scroll-hint">↓</div>
     </section>
 
     <section class="panel">
       <div class="card">
-        <h2>Meebewegende achtergrond</h2>
-        <p>De video zit vast achter de pagina en verschuift langzamer dan de tekst,
-           waardoor het klassieke parallax-effect ontstaat: diepte en beweging.</p>
+        <h2>Scroll bestuurt de video</h2>
+        <p>De video staat vast op de achtergrond. Hoe verder je naar beneden
+           scrollt, hoe verder de video afspeelt — stap voor stap.</p>
       </div>
     </section>
 
     <section class="panel alt">
       <div class="card">
-        <h2>Zacht, vloeiend effect</h2>
-        <p>De video schaalt iets op zodat hij tijdens het bewegen het scherm altijd
-           volledig vult. De beweging is subtiel en blijft soepel dankzij
-           <code>requestAnimationFrame</code>.</p>
+        <h2>Vloeiend doorlopen</h2>
+        <p>De videotijd schuift soepel naar de scrollpositie toe dankzij
+           <code>requestAnimationFrame</code>, zodat de beweging niet schokt.</p>
       </div>
     </section>
 
