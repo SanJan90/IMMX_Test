@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parallax Video Demo</title>
+  <title>Scroll Video Demo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -17,41 +17,55 @@
     <div class="overlay"></div>
   </div>
 
-  <!-- Content die over de video heen scrolt -->
+  <!-- Paarse sluier die aan het einde van de video het scherm vult -->
+  <div class="purple-veil" id="purple-veil"></div>
+
   <main>
-    <section class="hero">
-      <h1>Scroll Video</h1>
-      <p>Scroll naar beneden — de video loopt langzaam mee</p>
-      <div class="scroll-hint">↓</div>
-    </section>
+    <!-- Scrub-zone: hierbinnen bestuurt scrollen de video -->
+    <div class="scrub" id="scrub">
+      <section class="hero">
+        <h1>Scroll Video</h1>
+        <p>Scroll naar beneden — de video loopt soepel mee</p>
+        <div class="scroll-hint">↓</div>
+      </section>
 
-    <section class="panel">
-      <div class="card">
-        <h2>Scroll bestuurt de video</h2>
-        <p>De video staat vast op de achtergrond. Hoe verder je naar beneden
-           scrollt, hoe verder de video afspeelt — stap voor stap.</p>
+      <section class="panel">
+        <div class="card">
+          <h2>Scroll bestuurt de video</h2>
+          <p>De video staat vast op de achtergrond. Hoe verder je naar beneden
+             scrollt, hoe verder de video afspeelt — vloeiend, frame voor frame.</p>
+        </div>
+      </section>
+
+      <section class="panel alt">
+        <div class="card">
+          <h2>Echt afspelen, geen springen</h2>
+          <p>Bij naar beneden scrollen speelt de video vooruit op een snelheid
+             die meeschaalt met je scroll. Daardoor zie je elk frame en is de
+             beweging soepel.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="card">
+          <h2>Naar het einde toe…</h2>
+          <p>Blijf scrollen. Aan het einde van de video kleurt het hele scherm
+             paars — in de tint die ook in de video voorbijkomt.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- De echte pagina, waar je in terechtkomt na de paarse overgang -->
+    <section class="real-page">
+      <div class="real-inner">
+        <h2>Welkom op de pagina</h2>
+        <p>Dit is de echte inhoud. De paarse overgang aan het einde van de video
+           loopt naadloos over in deze pagina.</p>
+        <p>Hier kun je je gewone content plaatsen: tekst, knoppen, secties — wat je
+           maar wilt.</p>
+        <a class="btn" href="#top">Terug naar boven</a>
       </div>
     </section>
-
-    <section class="panel alt">
-      <div class="card">
-        <h2>Vloeiend doorlopen</h2>
-        <p>De videotijd schuift soepel naar de scrollpositie toe dankzij
-           <code>requestAnimationFrame</code>, zodat de beweging niet schokt.</p>
-      </div>
-    </section>
-
-    <section class="panel">
-      <div class="card">
-        <h2>Volledig responsive</h2>
-        <p>Werkt op desktop en mobiel. De video wordt altijd bijgesneden om het
-           hele scherm te bedekken (<code>object-fit: cover</code>).</p>
-      </div>
-    </section>
-
-    <footer>
-      <p>Einde van de demo · parallax video achtergrond</p>
-    </footer>
   </main>
 
   <script src="script.js"></script>

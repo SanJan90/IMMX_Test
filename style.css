@@ -1,3 +1,8 @@
+:root {
+  /* Paarse eindkleur — wordt door JS overschreven met de echte kleur uit de video */
+  --end-color: #5e2a8c;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -41,7 +46,18 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10, 5, 25, 0.35), rgba(20, 5, 40, 0.55));
+  background: linear-gradient(180deg, rgba(10, 5, 25, 0.25), rgba(20, 5, 40, 0.45));
+}
+
+/* ---- Paarse sluier voor de overgang naar de echte pagina ---- */
+.purple-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background: var(--end-color);
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
 }
 
 /* ---- Content ---- */
@@ -113,18 +129,43 @@ section {
   opacity: 0.9;
 }
 
-code {
-  background: rgba(255, 255, 255, 0.12);
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
-  font-size: 0.9em;
+/* ---- De echte pagina ---- */
+.real-page {
+  position: relative;
+  z-index: 10; /* boven de sluier, zodat je er echt in terechtkomt */
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--end-color), #1a0533);
+  text-align: center;
 }
 
-footer {
-  min-height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  opacity: 0.7;
+.real-inner {
+  max-width: 640px;
+}
+
+.real-inner h2 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.real-inner p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0.92;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 2rem;
+  background: #fff;
+  color: #2a0a4a;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 999px;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
 }

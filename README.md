@@ -29,19 +29,30 @@ verder de video loopt.
 - `style.css` — vormgeving, video vult altijd het scherm (`object-fit: cover`)
 - `script.js` — koppelt de scrollpositie aan `video.currentTime`
 
+## Hoe het werkt
+
+- Naar beneden scrollen laat de video **echt vooruit afspelen** (frame voor
+  frame, dus soepel) op een snelheid die meeschaalt met je scroll — geen
+  schokkerig "springen" naar tijdsposities.
+- Aan het einde van de video vult een **paarse sluier** het scherm. Die kleur
+  wordt automatisch uit de laatste frame van de video gesampled, dus het is
+  precies de tint die in de video voorbijkomt.
+- Daarna scroll je de **echte pagina** (`.real-page`) in, die naadloos verder
+  gaat in dezelfde paarse kleur.
+
 ## Afstellen
 
-- Soepelheid: pas `SMOOTHING` aan in `script.js` (0–1; hoger volgt de scroll sneller).
-- Hoe meer paginahoogte (meer/hogere secties), hoe langzamer de video per
-  scroll-afstand loopt.
+- Snelheid van het soepel afspelen: pas de factor in `clamp(diff * 6, 1, 16)`
+  aan in `script.js`.
+- Wanneer het paars invult: pas `smoothstep(0.82, 1.0, ...)` aan (0.82 = vanaf
+  82% van de scrub-zone).
+- Hoeveel scroll de video duurt: voeg secties toe/weg in de `.scrub`-div, of
+  maak ze hoger.
 
 ## Let op
 
-- De video moet **muted** zijn om in browsers programmatisch bestuurd te kunnen
-  worden (staat al ingesteld).
-- Voor soepel scrubben helpt het als de video veel keyframes heeft. Lukt het
-  scrubben schokkerig, her-encodeer dan met een laag keyframe-interval, bijv.:
-
-  ```bash
-  ffmpeg -i input.mp4 -g 1 -c:v libx264 -preset slow -crf 20 output.mp4
-  ```
+- De video moet **muted** zijn om programmatisch afgespeeld te kunnen worden
+  (staat al ingesteld).
+- De kleur-sampling werkt het best via een lokale server (`python3 -m
+  http.server`). Bij openen via `file://` kan de browser het uitlezen van de
+  video blokkeren; dan wordt de CSS-fallbackkleur `--end-color` gebruikt.
