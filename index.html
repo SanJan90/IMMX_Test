@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallax Video Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Vaste video-achtergrond die meebeweegt via parallax -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline id="bg-video">
+      <source src="moving_the_ropes_light_turn_more_and_more_purple_wt83jrj3u7qhz86aoi25_1.mp4" type="video/mp4" />
+      Je browser ondersteunt geen HTML5-video.
+    </video>
+    <div class="overlay"></div>
+  </div>
+
+  <!-- Content die over de video heen scrolt -->
+  <main>
+    <section class="hero">
+      <h1>Parallax Video</h1>
+      <p>Scroll naar beneden — de achtergrond beweegt mee</p>
+      <div class="scroll-hint">↓</div>
+    </section>
+
+    <section class="panel">
+      <div class="card">
+        <h2>Meebewegende achtergrond</h2>
+        <p>De video zit vast achter de pagina en verschuift langzamer dan de tekst,
+           waardoor het klassieke parallax-effect ontstaat: diepte en beweging.</p>
+      </div>
+    </section>
+
+    <section class="panel alt">
+      <div class="card">
+        <h2>Zacht, vloeiend effect</h2>
+        <p>De video schaalt iets op zodat hij tijdens het bewegen het scherm altijd
+           volledig vult. De beweging is subtiel en blijft soepel dankzij
+           <code>requestAnimationFrame</code>.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="card">
+        <h2>Volledig responsive</h2>
+        <p>Werkt op desktop en mobiel. De video wordt altijd bijgesneden om het
+           hele scherm te bedekken (<code>object-fit: cover</code>).</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Einde van de demo · parallax video achtergrond</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
