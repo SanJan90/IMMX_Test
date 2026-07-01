@@ -1,58 +1,56 @@
-# Scroll Video Demo
+# AFTC® Group — Website
 
-Een HTML-pagina met een vaste video-achtergrond waarbij de **scrollpositie de
-afspeeltijd van de video bestuurt**: hoe verder je naar beneden scrollt, hoe
-verder de video loopt.
+A multi-page marketing website for **AFTC® Group** — the acrylic foam tape
+specialists — built directly from the **AFTC Brand & Design System v1.0**.
 
-## Gebruik
+## Design system
 
-1. Plaats het videobestand **in dezelfde map** als `index.html` met exact deze naam:
+Implemented faithfully from the brand guidelines:
 
-   ```
-   moving_the_ropes_light_turn_more_and_more_purple_wt83jrj3u7qhz86aoi25_1.mp4
-   ```
+- **Colour** — AFTC Orange `#E87308` as the signal accent, a neutral grey
+  system (`#76777A`, `#333333`, `#B9BABC`, `#F5F5F6`) for text and structure,
+  charcoal imagery overlays and a pale-blue (`#DBEEF3`) support tint. Usage
+  ratio ~60% neutral / 25% grey / 15% orange.
+- **Typography** — Albert Sans (headings & body), Oswald (uppercase labels &
+  UI micro-copy), Varela Round (rounded accent).
+- **Components** — fully-rounded pill buttons with uppercase Oswald labels,
+  circular icon buttons, category pills, 8px-radius cards, an 8px spacing
+  scale, industrial photo + dark-overlay hero, and a solid-orange feature
+  panel.
+- **Logo** — the AFTC wordmark in heavy italic geometric sans with the
+  orange diagonal slash (`assets/img/logo.svg`), recoloured for dark
+  surfaces via a CSS custom property.
+- **Navigation** — Company · Applications · Products · Downloads · Services
+  (dropdowns), matching the brand's primary nav.
 
-   (Heeft jouw bestand een andere naam? Pas dan de `src` in `index.html` aan.)
+## Pages
 
-2. Open `index.html` in de browser, of start een lokale server:
+| File | Purpose |
+| --- | --- |
+| `index.html` | Home — hero, about, brand principles, applications, products, feature panel, services, downloads |
+| `products.html` | Full SilverTape™ range with a selection/comparison table |
+| `applications.html` | Industry sectors: automotive, solar, signing, construction, transportation, electronics, aerospace, appliances |
+| `contact.html` | Contact form and company details |
 
-   ```bash
-   python3 -m http.server 8000
-   # open http://localhost:8000
-   ```
+## Assets
 
-3. Scroll — de video staat stil op de achtergrond en loopt mee met je scroll.
+- `assets/css/style.css` — the complete design-system stylesheet (tokens,
+  components, layout, responsive rules)
+- `assets/js/main.js` — mobile nav toggle, scroll-reveal animation, demo form
+- `assets/img/logo.svg` — AFTC wordmark
 
-## Bestanden
+## Run locally
 
-- `index.html` — structuur van de pagina
-- `style.css` — vormgeving, video vult altijd het scherm (`object-fit: cover`)
-- `script.js` — koppelt de scrollpositie aan `video.currentTime`
+```bash
+python3 -m http.server 8000
+# open http://localhost:8000
+```
 
-## Hoe het werkt
+No build step — plain HTML/CSS/JS. Fonts load from Google Fonts.
 
-- Naar beneden scrollen laat de video **echt vooruit afspelen** (frame voor
-  frame, dus soepel) op een snelheid die meeschaalt met je scroll — geen
-  schokkerig "springen" naar tijdsposities.
-- Aan het einde van de video vult een **paarse sluier** het scherm. Die kleur
-  wordt automatisch uit de laatste frame van de video gesampled, dus het is
-  precies de tint die in de video voorbijkomt.
-- Daarna scroll je de **echte pagina** (`.real-page`) in, die naadloos verder
-  gaat in dezelfde paarse kleur.
+## Content source
 
-## Afstellen
-
-- Snelheid van het soepel afspelen: pas de factor in `clamp(diff * 6, 1, 16)`
-  aan in `script.js`.
-- Wanneer het paars invult: pas `smoothstep(0.82, 1.0, ...)` aan (0.82 = vanaf
-  82% van de scrub-zone).
-- Hoeveel scroll de video duurt: voeg secties toe/weg in de `.scrub`-div, of
-  maak ze hoger.
-
-## Let op
-
-- De video moet **muted** zijn om programmatisch afgespeeld te kunnen worden
-  (staat al ingesteld).
-- De kleur-sampling werkt het best via een lokale server (`python3 -m
-  http.server`). Bij openen via `file://` kan de browser het uitlezen van de
-  video blokkeren; dan wordt de CSS-fallbackkleur `--end-color` gebruikt.
+Company information and the SilverTape™ product range reflect publicly
+available details from [aftcgroup.com](https://www.aftcgroup.com). Photography
+is represented with charcoal-gradient placeholder panels per the brand's
+imagery direction; swap in production imagery as needed.
