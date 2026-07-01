@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 78" width="300" height="78" role="img" aria-label="AFTC">
+  <style>
+    .wm { font-family: 'Albert Sans', Arial, sans-serif; font-weight: 800; font-size: 62px; font-style: italic; letter-spacing: -2px; }
+  </style>
+  <text x="4" y="60" class="wm" fill="var(--logo-fill, #333333)">AF</text>
+  <!-- orange diagonal slash echoing a strip of tape -->
+  <polygon points="150,8 172,8 128,72 106,72" fill="#E87308"/>
+  <text x="170" y="60" class="wm" fill="var(--logo-fill, #333333)">TC</text>
+  <text x="286" y="26" font-family="Albert Sans, Arial, sans-serif" font-weight="700" font-size="16" fill="var(--logo-fill, #333333)">®</text>
+</svg>

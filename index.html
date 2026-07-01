@@ -1,73 +1,430 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scroll Video Demo</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>AFTC® Group — The Acrylic Foam Tape Specialists</title>
+  <meta name="description" content="AFTC® Group manufactures SilverTape™ double-sided acrylic foam tapes (AFT) — high-performance bonding solutions for automotive, solar, signing, construction, transportation, electronics and aerospace." />
+  <link rel="icon" href="assets/img/logo.svg" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-  <!-- Vaste video-achtergrond; scroll bepaalt hoe ver de video is afgespeeld -->
-  <div class="video-bg">
-    <video muted playsinline preload="auto" id="bg-video">
-      <source src="moving_the_ropes_light_turn_more_and_more_purple_wt83jrj3u7qhz86aoi25_1.mp4" type="video/mp4" />
-      Je browser ondersteunt geen HTML5-video.
-    </video>
-    <div class="overlay"></div>
-  </div>
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" data-open="false" aria-label="Primary">
+        <a class="nav__logo" href="index.html" aria-label="AFTC home">
+          <img src="assets/img/logo.svg" alt="AFTC" />
+        </a>
 
-  <!-- Paarse sluier die aan het einde van de video het scherm vult -->
-  <div class="purple-veil" id="purple-veil"></div>
+        <ul class="nav__menu">
+          <li>
+            <span class="nav__link" tabindex="0">Company <span class="caret">▾</span></span>
+            <div class="dropdown">
+              <a href="index.html#about">About AFTC</a>
+              <a href="index.html#principles">Brand Principles</a>
+              <a href="index.html#quality">Quality &amp; R&amp;D</a>
+              <a href="contact.html">Careers &amp; Contact</a>
+            </div>
+          </li>
+          <li>
+            <span class="nav__link" tabindex="0">Applications <span class="caret">▾</span></span>
+            <div class="dropdown">
+              <a href="applications.html#automotive">Automotive</a>
+              <a href="applications.html#solar">Solar</a>
+              <a href="applications.html#signing">Signing</a>
+              <a href="applications.html#construction">Building &amp; Construction</a>
+              <a href="applications.html#electronics">Electronics</a>
+              <a href="applications.html">All applications</a>
+            </div>
+          </li>
+          <li>
+            <span class="nav__link" tabindex="0">Products <span class="caret">▾</span></span>
+            <div class="dropdown">
+              <a href="products.html#direct-foam">SilverTape™ Direct Foam</a>
+              <a href="products.html#primerless">SilverTape™ Primerless</a>
+              <a href="products.html#lse">SilverTape™ Low Surface Energy</a>
+              <a href="products.html#low-temp">SilverTape™ Low Temperature</a>
+              <a href="products.html">All products</a>
+            </div>
+          </li>
+          <li>
+            <span class="nav__link" tabindex="0">Downloads <span class="caret">▾</span></span>
+            <div class="dropdown">
+              <a href="index.html#downloads">Brochures</a>
+              <a href="index.html#downloads">Technical Datasheets</a>
+              <a href="index.html#downloads">Application Guides</a>
+            </div>
+          </li>
+          <li>
+            <span class="nav__link" tabindex="0">Services <span class="caret">▾</span></span>
+            <div class="dropdown">
+              <a href="index.html#services">Technical Support</a>
+              <a href="index.html#services">Converting &amp; Die-Cutting</a>
+              <a href="index.html#services">Private Label</a>
+            </div>
+          </li>
+        </ul>
 
-  <main>
-    <!-- Scrub-zone: hierbinnen bestuurt scrollen de video -->
-    <div class="scrub" id="scrub">
-      <section class="hero">
-        <h1>Scroll Video</h1>
-        <p>Scroll naar beneden — de video loopt soepel mee</p>
-        <div class="scroll-hint">↓</div>
-      </section>
-
-      <section class="panel">
-        <div class="card">
-          <h2>Scroll bestuurt de video</h2>
-          <p>De video staat vast op de achtergrond. Hoe verder je naar beneden
-             scrollt, hoe verder de video afspeelt — vloeiend, frame voor frame.</p>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href="contact.html">Contact Us</a>
+          <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
-      </section>
-
-      <section class="panel alt">
-        <div class="card">
-          <h2>Echt afspelen, geen springen</h2>
-          <p>Bij naar beneden scrollen speelt de video vooruit op een snelheid
-             die meeschaalt met je scroll. Daardoor zie je elk frame en is de
-             beweging soepel.</p>
-        </div>
-      </section>
-
-      <section class="panel">
-        <div class="card">
-          <h2>Naar het einde toe…</h2>
-          <p>Blijf scrollen. Aan het einde van de video kleurt het hele scherm
-             paars — in de tint die ook in de video voorbijkomt.</p>
-        </div>
-      </section>
+      </nav>
     </div>
+  </header>
 
-    <!-- De echte pagina, waar je in terechtkomt na de paarse overgang -->
-    <section class="real-page">
-      <div class="real-inner">
-        <h2>Welkom op de pagina</h2>
-        <p>Dit is de echte inhoud. De paarse overgang aan het einde van de video
-           loopt naadloos over in deze pagina.</p>
-        <p>Hier kun je je gewone content plaatsen: tekst, knoppen, secties — wat je
-           maar wilt.</p>
-        <a class="btn" href="#top">Terug naar boven</a>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="container">
+      <div class="hero__inner">
+        <span class="eyebrow">The Acrylic Foam Tape Specialists</span>
+        <h1 class="display">The best ideas <span class="accent-orange">stick.</span></h1>
+        <p class="hero__sub">SilverTape™ double-sided acrylic foam tapes replace rivets, welds and mechanical fasteners with a clean, permanent bond — engineered for the world's most demanding industries.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="products.html">Explore Products</a>
+          <a class="btn btn--on-dark" href="applications.html">View Applications</a>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat"><div class="num">100%</div><div class="lbl">Acrylic Foam Core</div></div>
+          <div class="hero__stat"><div class="num">8+</div><div class="lbl">Industries Served</div></div>
+          <div class="hero__stat"><div class="num">®</div><div class="lbl">SilverTape™ Trademark</div></div>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="container grid grid--2" style="align-items:center; gap:var(--s-5);">
+      <div class="reveal">
+        <span class="eyebrow">Who is AFTC</span>
+        <h2>A specialist manufacturer of <span class="accent" style="color:var(--orange)">acrylic foam tapes</span>.</h2>
+        <p class="lead">AFTC® Group manufactures double-sided viscoelastic 100% acrylic foam tapes under its registered trademark SilverTape™. These tapes replace traditional bonding methods — absorbing thermal expansion, dampening vibration and distributing stress across the entire bond line.</p>
+        <p>From automotive body panels to solar frames and architectural façades, our tapes deliver invisible, permanent joins that outperform mechanical fasteners in both strength and finish.</p>
+        <a class="btn btn--ghost" href="contact.html">Talk to an Engineer</a>
+      </div>
+      <div class="reveal grid grid--2" style="gap:var(--s-2);">
+        <div class="card">
+          <div class="icon">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"/></svg>
+          </div>
+          <h3>Permanent Strength</h3>
+          <p>Viscoelastic bonds that flex, absorb shock and hold for the product's lifetime.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+          </div>
+          <h3>Data-Driven</h3>
+          <p>Every claim backed by datasheets, specifications and application testing.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg>
+          </div>
+          <h3>Clean Finish</h3>
+          <p>No visible fasteners, no drilled holes — a seamless, corrosion-free surface.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Thermal Resilience</h3>
+          <p>Absorbs differential expansion between dissimilar materials and temperatures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRAND PRINCIPLES ============ -->
+  <section class="section section--off" id="principles">
+    <div class="container">
+      <div class="center reveal" style="margin-bottom:var(--s-4);">
+        <span class="eyebrow">How we work</span>
+        <h2>Engineering-led. Industrial. Approachable.</h2>
+        <p class="lead">Three principles shape everything we make and every specification we publish.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="card reveal">
+          <div class="card__num">01</div>
+          <h3>Technical &amp; Precise</h3>
+          <p>Communication is engineering-led, factual and data-driven — datasheets, specifications and application guidance are front and centre.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card__num">02</div>
+          <h3>Industrial &amp; Confident</h3>
+          <p>Bold orange accents against neutral greys convey strength, energy and dependability in demanding industrial environments.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card__num">03</div>
+          <h3>Approachable Expertise</h3>
+          <p>A friendly, human tone keeps deep technical knowledge accessible — so choosing the right tape is simple.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPLICATIONS / SECTORS ============ -->
+  <section class="section" id="applications">
+    <div class="container">
+      <div class="reveal" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:var(--s-3); margin-bottom:var(--s-4);">
+        <div>
+          <span class="eyebrow">Applications</span>
+          <h2>Bonding across every industry.</h2>
+          <p class="lead">Select the sector that suits your needs — our tapes are engineered for each.</p>
+        </div>
+        <a class="btn btn--ghost" href="applications.html">All Applications</a>
+      </div>
+
+      <div class="grid grid--4">
+        <a class="sector reveal" href="applications.html#automotive" id="automotive">
+          <span class="icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 13l2-5a2 2 0 012-1.5h10A2 2 0 0119 8l2 5v5h-3v-2H6v2H3z"/><circle cx="7" cy="15.5" r="1.5"/><circle cx="17" cy="15.5" r="1.5"/></svg>
+          </span>
+          <h4>Automotive</h4>
+          <p>Body panels, trim, badges and emblems bonded without primer.</p>
+        </a>
+        <a class="sector reveal" href="applications.html#solar" id="solar">
+          <span class="icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M3 8h18M3 12h18M9 4v12M15 4v12M8 20h8M12 16v4"/></svg>
+          </span>
+          <h4>Solar</h4>
+          <p>Frame and junction-box bonding that withstands the elements.</p>
+        </a>
+        <a class="sector reveal" href="applications.html#signing" id="signing">
+          <span class="icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="5" width="16" height="10" rx="1"/><path d="M12 15v4M8 19h8"/></svg>
+          </span>
+          <h4>Signing</h4>
+          <p>Clean, fastener-free mounting for illuminated and flat signage.</p>
+        </a>
+        <a class="sector reveal" href="applications.html#construction" id="construction">
+          <span class="icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6M4 9h16"/></svg>
+          </span>
+          <h4>Building &amp; Construction</h4>
+          <p>Façade panels and architectural cladding bonded invisibly.</p>
+        </a>
+        <a class="sector reveal" href="applications.html#transportation" id="transportation">
+          <span class="icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="4" width="16" height="13" rx="2"/><path d="M4 12h16M8 17v2M16 17v2"/><circle cx="8" cy="14" r="0.6"/><circle cx="16" cy="14" r="0.6"/></svg>
+          </span>
+          <h4>Transportation</h4>
+          <p>Rail and commercial vehicle assembly with vibration damping.</p>
+        </a>
+        <a class="sector reveal" href="applications.html#electronics" id="electronics">
+          <span class="icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+          </span>
+          <h4>Electronics</h4>
+          <p>Precision bonding for displays, housings and components.</p>
+        </a>
+        <a class="sector reveal" href="applications.html#aerospace" id="aerospace">
+          <span class="icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2c2 3 3 6 3 10l4 3v2l-5-1-2 4-2-4-5 1v-2l4-3c0-4 1-7 3-10z"/></svg>
+          </span>
+          <h4>Aerospace</h4>
+          <p>Lightweight, high-strength bonds for demanding environments.</p>
+        </a>
+        <a class="sector reveal" href="applications.html#appliances" id="appliances">
+          <span class="icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M6 8h12"/><circle cx="9" cy="5.5" r="0.6"/><circle cx="9" cy="14" r="2"/></svg>
+          </span>
+          <h4>Home Appliances</h4>
+          <p>White-goods bonding for ovens, refrigerators and dishwashers.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCTS ============ -->
+  <section class="section section--off" id="products">
+    <div class="container">
+      <div class="center reveal" style="margin-bottom:var(--s-4);">
+        <span class="eyebrow">SilverTape™ Range</span>
+        <h2>Select the product that suits your needs.</h2>
+        <p class="lead">A complete family of double-sided acrylic foam tapes, each engineered for a specific substrate and environment.</p>
+      </div>
+      <div class="grid grid--4">
+        <article class="product reveal" id="direct-foam">
+          <div class="product__media"><span class="pill pill--orange">High Surface Energy</span></div>
+          <div class="product__body">
+            <div class="sub">SilverTape™</div>
+            <h3>Direct Foam</h3>
+            <p>High-performance bonding for glass, aluminium and steel — absorbs thermal expansion between materials.</p>
+            <div class="product__foot"><span class="link">Datasheet</span><span class="icon-btn icon-btn--ghost">›</span></div>
+          </div>
+        </article>
+        <article class="product reveal" id="primerless">
+          <div class="product__media"><span class="pill pill--orange">Automotive</span></div>
+          <div class="product__body">
+            <div class="sub">SilverTape™</div>
+            <h3>Primerless</h3>
+            <p>Highly conformable tape with strong adhesion on low-surface-energy substrates — no primer required.</p>
+            <div class="product__foot"><span class="link">Datasheet</span><span class="icon-btn icon-btn--ghost">›</span></div>
+          </div>
+        </article>
+        <article class="product reveal" id="lse">
+          <div class="product__media"><span class="pill pill--orange">Soft Foam</span></div>
+          <div class="product__body">
+            <div class="sub">SilverTape™</div>
+            <h3>Low Surface Energy</h3>
+            <p>Designed for powder-coatings and coated glass across high, medium and low energy surfaces.</p>
+            <div class="product__foot"><span class="link">Datasheet</span><span class="icon-btn icon-btn--ghost">›</span></div>
+          </div>
+        </article>
+        <article class="product reveal" id="low-temp">
+          <div class="product__media"><span class="pill pill--orange">Cold Bonding</span></div>
+          <div class="product__body">
+            <div class="sub">SilverTape™</div>
+            <h3>Low Temperature</h3>
+            <p>High initial tack for bonding at temperatures as low as 0&nbsp;°C on high and medium energy substrates.</p>
+            <div class="product__foot"><span class="link">Datasheet</span><span class="icon-btn icon-btn--ghost">›</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="center" style="margin-top:var(--s-4);">
+        <a class="btn btn--primary" href="products.html">View Full Range</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ORANGE FEATURE PANEL ============ -->
+  <section class="section" id="quality">
+    <div class="container">
+      <div class="feature-panel reveal">
+        <div>
+          <span class="eyebrow">Why acrylic foam tape</span>
+          <h2>One bond line. Every advantage.</h2>
+          <p>Unlike rivets or welds that concentrate stress at single points, SilverTape™ distributes load across the entire joint — sealing, damping and bonding in a single step. The result is stronger, lighter and cleaner than mechanical fastening.</p>
+          <a class="btn btn--primary" href="products.html">Read More</a>
+        </div>
+        <div class="feature-panel__stats">
+          <div><div class="num">−40&nbsp;°C</div><div class="lbl">to +90&nbsp;°C service</div></div>
+          <div><div class="num">0&nbsp;mm</div><div class="lbl">visible fasteners</div></div>
+          <div><div class="num">100%</div><div class="lbl">viscoelastic acrylic</div></div>
+          <div><div class="num">1-step</div><div class="lbl">bond, seal &amp; damp</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section section--off" id="services">
+    <div class="container">
+      <div class="center reveal" style="margin-bottom:var(--s-4);">
+        <span class="eyebrow">Services</span>
+        <h2>Support beyond the roll.</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card reveal">
+          <div class="icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3a9 9 0 00-9 9v4a2 2 0 002 2h2v-6H5v-0a7 7 0 0114 0v0h-2v6h2a2 2 0 002-2v-4a9 9 0 00-9-9z"/></svg></div>
+          <h3>Technical Support</h3>
+          <p>Our engineers help you match substrate, surface energy and environment to the right tape.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 4l6 6-9 9H5v-6l9-9z"/><path d="M13 5l6 6"/></svg></div>
+          <h3>Converting &amp; Die-Cutting</h3>
+          <p>Custom widths, lengths and die-cut shapes delivered to your production line specification.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg></div>
+          <h3>Private Label</h3>
+          <p>SilverTape™ performance under your own brand, with full technical documentation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOWNLOADS ============ -->
+  <section class="section" id="downloads">
+    <div class="container">
+      <div class="reveal" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:var(--s-3); margin-bottom:var(--s-4);">
+        <div>
+          <span class="eyebrow">Downloads</span>
+          <h2>Datasheets &amp; brochures.</h2>
+          <p class="lead">Technical documentation for every product in the SilverTape™ range.</p>
+        </div>
+      </div>
+      <div class="grid grid--3">
+        <a class="card reveal" href="#" style="display:flex; align-items:center; gap:var(--s-2);">
+          <span class="icon-btn">↓</span>
+          <div><b style="display:block">Product Brochure</b><span style="color:var(--steel); font-size:.9rem;">PDF · Full range overview</span></div>
+        </a>
+        <a class="card reveal" href="#" style="display:flex; align-items:center; gap:var(--s-2);">
+          <span class="icon-btn">↓</span>
+          <div><b style="display:block">Technical Datasheets</b><span style="color:var(--steel); font-size:.9rem;">PDF · Per-product specs</span></div>
+        </a>
+        <a class="card reveal" href="#" style="display:flex; align-items:center; gap:var(--s-2);">
+          <span class="icon-btn">↓</span>
+          <div><b style="display:block">Application Guide</b><span style="color:var(--steel); font-size:.9rem;">PDF · Surface prep &amp; bonding</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="cta reveal">
+        <h2>Not sure which tape? <span class="accent-orange">We'll help you choose.</span></h2>
+        <a class="btn btn--primary" href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/logo.svg" alt="AFTC" style="--logo-fill:#fff" />
+          <p>AFTC® Group — the acrylic foam tape specialists. Double-sided SilverTape™ bonding solutions for industry.</p>
+        </div>
+        <div>
+          <h5>Products</h5>
+          <ul>
+            <li><a href="products.html#direct-foam">Direct Foam</a></li>
+            <li><a href="products.html#primerless">Primerless</a></li>
+            <li><a href="products.html#lse">Low Surface Energy</a></li>
+            <li><a href="products.html#low-temp">Low Temperature</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Applications</h5>
+          <ul>
+            <li><a href="applications.html#automotive">Automotive</a></li>
+            <li><a href="applications.html#solar">Solar</a></li>
+            <li><a href="applications.html#construction">Construction</a></li>
+            <li><a href="applications.html#electronics">Electronics</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Company</h5>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#downloads">Downloads</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 AFTC® Group. SilverTape™ is a registered trademark. All rights reserved.</span>
+        <div class="pill-row">
+          <span class="pill">Automotive</span>
+          <span class="pill">Solar</span>
+          <span class="pill">Signing</span>
+          <span class="pill">Electronics</span>
+          <span class="pill">Aerospace</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
